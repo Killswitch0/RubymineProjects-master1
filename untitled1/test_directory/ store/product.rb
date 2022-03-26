@@ -66,8 +66,3 @@ class Product
     # to do
   end
 end
-
-
-def hello
-
-end
