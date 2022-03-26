@@ -63,6 +63,6 @@ class Product
   end
 
   def self.read_from_file(file_path)
-    # to do
+    # to do :)
   end
 end
