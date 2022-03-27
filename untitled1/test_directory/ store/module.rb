@@ -4,7 +4,7 @@ module FilmInstVar
   end
 end
 
-module BookInstVer
+module BookInstVar
   def arr_to_save
     [@name, @genre, @year, @author, @price, @amount]
   end

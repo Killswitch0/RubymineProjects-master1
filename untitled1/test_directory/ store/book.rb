@@ -1,7 +1,7 @@
 require_relative 'module'
 
 class Book < Product
-  include BookInstVer
+  include BookInstVar
 
   attr_accessor :name,
                 :author,
@@ -51,7 +51,7 @@ class Book < Product
   end
 
   def self.read_from_file(file_path)
-    lines = File.readlines(file_path, encoding: 'UTF-8').map { |l| l.chomp }
+    lines = File.readlines(file_path, encoding: 'UTF-8').map { |l| puts l.chomp }
 
     self.new(
       name: lines[0],

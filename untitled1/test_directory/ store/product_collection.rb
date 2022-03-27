@@ -2,7 +2,7 @@ class ProductCollection
   PRODUCT_TYPES = {
     film: {dir: 'film', class: Film},
     book: {dir: 'book', class: Book}
-  }
+  }.freeze
 
   def initialize(products = [])
     @products = products
@@ -16,7 +16,7 @@ class ProductCollection
 
       product_class = hash[:class]
 
-      Dir[dir_path + '/' + product_dir + '/*.txt'].each do |path|
+      Dir["#{dir_path}/#{product_dir}/*.txt"].each do |path|
         products << product_class.read_from_file(path)
       end
     end
@@ -31,7 +31,7 @@ class ProductCollection
   def sort!(params)
     case params[:by]
     when :title
-      @products.sort_by! { |product| product.to_s }
+      @products.sort_by!{ |product| product.to_s }
     when :amount
       @products.sort_by! { |product| product.amount.to_i }
     when :price

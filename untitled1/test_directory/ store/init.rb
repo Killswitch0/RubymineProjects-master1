@@ -18,7 +18,6 @@ book = Book.new(name: 'Под Куполом',
                 year: 2009,
                 price: 2000,
                 amount: 5
-
 )
 
 puts film
