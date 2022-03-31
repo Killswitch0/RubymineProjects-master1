@@ -1,7 +1,7 @@
 class ProductCollection
   PRODUCT_TYPES = {
-    film: {dir: 'film', class: Film},
-    book: {dir: 'book', class: Book}
+    film: { dir: 'film', class: Film },
+    book: { dir: 'book', class: Book }
   }.freeze
 
   def initialize(products = [])
@@ -31,7 +31,7 @@ class ProductCollection
   def sort!(params)
     case params[:by]
     when :title
-      @products.sort_by!{ |product| product.to_s }
+      @products.sort_by!(&:to_s)
     when :amount
       @products.sort_by! { |product| product.amount.to_i }
     when :price
