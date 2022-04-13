@@ -10,8 +10,6 @@ class Book < Product
 
   def to_strings
     "Название книги: #{@name}. Автор: #{@author}. Жанр: #{@genre}. Год: #{@year}. #{super}"
-
-    [@name, @author, @genre, @year, @price, @amount]
   end
 
   def read_from_console

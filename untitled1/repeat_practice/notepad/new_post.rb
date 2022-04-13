@@ -26,6 +26,6 @@ entry.read_from_console
 
 entry.save
 
-entry.loading(10)
+entry.loading(5)
 
 

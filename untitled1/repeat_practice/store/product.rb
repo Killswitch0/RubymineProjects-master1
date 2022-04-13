@@ -1,4 +1,8 @@
+require_relative 'module'
+
 class Product
+  include Saving
+
   attr_accessor :price, :amount
 
   def initialize(options = {})
@@ -26,23 +30,8 @@ class Product
     # to do
   end
 
-  def path
-    current_path = File.dirname(__FILE__ )
-
-    "#{current_path}/data/film/#{Time.now.strftime('%Y.%m.%d, %H:%M:%S')}_txt"
-  end
-
-  def save_to_txt
-    file = File.new(path, 'w:UTF-8')
-
-    to_strings.each { |l| file.puts(l) }
-
-    file.close
-  end
-
   def update(options)
     @price = options[:price] if options[:price]
     @amount = options[:amount] if options[:amount]
   end
-
 end

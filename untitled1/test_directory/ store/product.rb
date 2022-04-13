@@ -42,7 +42,7 @@ class Product
   end
 
   def save_to_txt
-    file = File.new(file_path, "w:UTF-8")
+    file = File.new(file_path, 'w:UTF-8')
 
     arr_to_save.each { |l| file.puts(l)}
 

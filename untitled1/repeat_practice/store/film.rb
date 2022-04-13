@@ -15,8 +15,6 @@ class Film < Product
 
   def to_strings
     "Фильм: #{@title}. Режиссер: #{@director}. Жанр: #{@genre}. Год: #{@year}. #{super}"
-
-    [@title, @director, @genre, @year, @price, @amount]
   end
 
   def read_from_console
