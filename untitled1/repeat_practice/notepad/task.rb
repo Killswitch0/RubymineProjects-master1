@@ -25,14 +25,4 @@ class Task < Post
 
     [time_string, @text, deadline]
   end
-
-  def save
-    file = File.new(file_path, 'w:UTF-8')
-
-    to_strings.each { |i| file.puts(i) }
-
-    file.close
-
-    puts 'Запись успешно сохранена :)'
-  end
 end

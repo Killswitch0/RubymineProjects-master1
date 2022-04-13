@@ -2,6 +2,7 @@ require_relative 'post'
 require_relative 'link'
 require_relative 'memo'
 require_relative 'task'
+require_relative 'module'
 
 
 puts 'Привет, я твой блокнот ^_^'
@@ -25,4 +26,6 @@ entry.read_from_console
 
 entry.save
 
-puts 'Запись успешно сохранена в блокнот :)'
+entry.loading(10)
+
+

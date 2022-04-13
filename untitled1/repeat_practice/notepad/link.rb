@@ -18,14 +18,4 @@ class Link < Post
 
     [time_string, @url, @text]
   end
-
-  def save
-    file = File.new(file_path, 'w:UTF-8')
-
-    to_strings.each { |item| file.puts(item) }
-
-    file.close
-
-    puts 'Ссылка сохранена!'
-  end
 end

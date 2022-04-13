@@ -27,7 +27,5 @@ class Memo < Post
     @text.each { |item| file.puts(item) }
 
     file.close
-
-    puts 'Запись успешно сохранена!'
   end
 end
