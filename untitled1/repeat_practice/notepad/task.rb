@@ -8,10 +8,10 @@ class Task < Post
   end
 
   def read_from_console
-    puts 'Что надо сделать?'
+    puts 'Какую задачу хотите поставить?'
     @text = STDIN.gets.chomp
 
-    puts 'К какому числу?'
+    puts 'К какому числу необходимо выполнить?'
     puts 'Укажите дату в формате ДД.ММ.ГГГГ, например 24.02.1996'
     input = STDIN.gets.chomp
 
@@ -29,10 +29,10 @@ class Task < Post
   def save
     file = File.new(file_path, 'w:UTF-8')
 
-    to_strings.each { |item| file.puts(item) }
+    to_strings.each { |i| file.puts(i) }
 
     file.close
 
-    puts 'Задача сохранена'
+    puts 'Запись успешно сохранена :)'
   end
 end

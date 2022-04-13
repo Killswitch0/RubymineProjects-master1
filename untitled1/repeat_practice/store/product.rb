@@ -7,7 +7,7 @@ class Product
   end
   
   def self.product_types
-    [Film]
+    [Film, Book]
   end
   
   def self.create(type_index)
@@ -29,15 +29,13 @@ class Product
   def path
     current_path = File.dirname(__FILE__ )
 
-    save_file_path = "#{current_path}/data/film/#{Time.now.strftime('%Y.%m.%d %H:%M:%S')}.txt"
-
-
+    "#{current_path}/data/film/#{Time.now.strftime('%Y.%m.%d, %H:%M:%S')}_txt"
   end
 
   def save_to_txt
     file = File.new(path, 'w:UTF-8')
 
-    [@title, @director, @genre, @year, @price, @amount].each { |l| file.puts(l) }
+    to_strings.each { |l| file.puts(l) }
 
     file.close
   end

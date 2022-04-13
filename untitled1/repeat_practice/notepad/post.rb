@@ -5,7 +5,7 @@ class Post
   end
 
   def self.post_types
-    [Link, Memo, Task]
+    [Memo, Link, Task]
   end
 
   def self.create(type_index)
@@ -15,22 +15,24 @@ class Post
   def to_strings
     # to do
   end
-
+  
   def read_from_console
     # to do
   end
-
+  
   def file_path
     current_path = File.dirname(__FILE__ )
+    
+    file_name = @created_at.strftime("#{self.class.name}_%Y.%m.%d, %H:%M:%S_txt")
 
-    file_name = @created_at.strftime("#{self.class.name}_%Y.%m.%d-%H-%M-%S_txt")
-
-    current_path + '/' + file_name
+    "#{current_path}/#{file_name}"
   end
 
   def save
     file = File.new(file_path, 'w:UTF-8')
 
-    to_strings.each { |item| file.puts(item) }
+    to_strings.each { |item| puts(item) }
+
+    file.close
   end
 end

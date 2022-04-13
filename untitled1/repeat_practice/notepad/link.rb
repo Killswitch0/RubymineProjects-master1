@@ -6,7 +6,7 @@ class Link < Post
   end
 
   def read_from_console
-    puts 'Адрес ссылки'
+    puts 'Адрес ссылки?'
     @url = STDIN.gets.chomp
 
     puts 'Что за ссылка?'
@@ -26,6 +26,6 @@ class Link < Post
 
     file.close
 
-    puts 'Ваша ссылка сохранена'
+    puts 'Ссылка сохранена!'
   end
 end

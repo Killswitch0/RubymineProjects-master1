@@ -15,6 +15,8 @@ class Film < Product
 
   def to_strings
     "Фильм: #{@title}. Режиссер: #{@director}. Жанр: #{@genre}. Год: #{@year}. #{super}"
+
+    [@title, @director, @genre, @year, @price, @amount]
   end
 
   def read_from_console
@@ -38,7 +40,7 @@ class Film < Product
   end
 
   def self.read_from_file(file_path)
-    lines = File.readlines(file_path, encoding: 'UTF-8').map { |l| l.chomp }
+    lines = File.readlines(file_path, encoding: 'UTF-8').map(&:chomp) # alternative { |i| i.chomp }
 
     self.new(
       title: lines[0],
