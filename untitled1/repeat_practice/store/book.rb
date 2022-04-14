@@ -35,7 +35,7 @@ class Book < Product
   def self.read_from_file(file_path)
     lines = File.readlines(file_path, encoding: 'UTF-8').map(&:chomp)
 
-    self.new(
+    new(
       name: lines[0],
       author: lines[1],
       genre: lines[2],

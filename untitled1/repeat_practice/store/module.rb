@@ -20,24 +20,24 @@ module Saving
 
     file.close
 
-    loading(10)
+    load(5)
   end
 
-  def loading(time)
-    puts "\nSaving".chomp
+  def load(time)
+    saving = %w[Saving . . . . .]
 
     3.times do
       load = 0
       while load < time
-        %w[. . . . .].each do |sign|
+        saving.each do |sign|
           print sign
-          sleep 0.1
+          sleep 0.3
 
           load += 1
         end
       end
     end
 
-    puts "Продукт #{self.class.to_s} успешно создан ^_^"
+    puts "Продукт #{self.class} успешно создан ^_^"
   end
 end

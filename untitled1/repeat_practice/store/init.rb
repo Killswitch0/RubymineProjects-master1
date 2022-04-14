@@ -1,6 +1,7 @@
 require_relative 'product'
 require_relative 'film'
 require_relative 'book'
+require_relative 'product_collection'
 
 film = Film.new(
   title: 'Дневник Памяти',
@@ -37,13 +38,17 @@ new_prod.read_from_console
 new_prod.save_to_txt
 
 puts
-puts "\n\n А сейчас мы прочитаем выбранный нами продукт ;) \n\n"
+puts "\n\n А сейчас мы прочитаем продукты ;) \n\n"
 
-film_path = "#{File.dirname(__FILE__ )}/data/film/01.txt"
+collection = ProductCollection.from_dir("#{File.dirname(__FILE__)}/data")
 
-read_film = Film.read_from_file(film_path)
+collection.sort!(by: :title)
 
-puts read_film.to_strings
+collection.to_a.each { |product| puts product.to_strings }
+
+
+
+
 
 
 
