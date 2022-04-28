@@ -46,7 +46,7 @@ collection.sort!(by: :title)
 
 collection.to_a.each { |product| puts product.to_strings }
 
-puts 'Все четко, друг!)'
+puts 'Все четко, друг!!!'
 
 
 
