@@ -52,3 +52,5 @@ collection.to_a.each { |product| puts product.to_strings }
 
 
 
+
+
