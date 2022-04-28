@@ -28,6 +28,7 @@ module Saving
 
     3.times do
       load = 0
+
       while load < time
         saving.each do |sign|
           print sign
