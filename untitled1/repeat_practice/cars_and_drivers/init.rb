@@ -7,6 +7,7 @@ require_relative 'driver'
 car = Car.new
 car.start_engine
 puts car.check_rpm
+car.fasten_seat_belt
 
 puts
 
@@ -30,9 +31,10 @@ sports_car.fill_tank(100)
 driver.drive(sports_car)
 
 puts
+puts
 
-sports_car.pump_up_tires(3.0)
-driver.drive(sports_car)
+
+
 
 
 
