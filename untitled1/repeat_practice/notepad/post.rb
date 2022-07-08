@@ -6,7 +6,7 @@ class Post
 
 
   def initialize
-    @created_at = Time.now
+    @text = Time.now
     @text = []
   end
 

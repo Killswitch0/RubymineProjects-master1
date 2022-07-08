@@ -14,14 +14,14 @@ class Memo < Post
   end
 
   def to_strings
-    time_string = @created_at.strftime('%Y.%m.%d, %H:%M:%S')
+    time_string = @text.strftime('%Y.%m.%d, %H:%M:%S')
 
     @text.unshift(time_string)
   end
 
   def save
     file = File.new(file_path, 'w:UTF-8')
-    time_string = @created_at.strftime('%Y.%m.%d, %H:%M:%S')
+    time_string = @text.strftime('%Y.%m.%d, %H:%M:%S')
     file.puts(time_string)
 
     @text.each { |item| file.puts(item) }

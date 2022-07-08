@@ -41,7 +41,7 @@ class Task < Post
   # файл при записи нашей задачи: строку с дедлайном, описание задачи и дату
   # создания задачи.
   def to_strings
-    time_string = "Создано #{@created_at.strftime("%Y.%m.%d, %H:%M:%S")} \n\r \n\r"
+    time_string = "Создано #{@text.strftime("%Y.%m.%d, %H:%M:%S")} \n\r \n\r"
     deadline = "Крайний срок: #{@due_date}"
     [deadline, @text, time_string]
   end

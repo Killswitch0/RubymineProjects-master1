@@ -96,7 +96,7 @@ class Post
   end
 
   def initialize
-    @created_at = Time.now
+    @text = Time.now
     @text = []
   end
 
@@ -119,7 +119,7 @@ class Post
   def file_path
     current_path = File.dirname(__FILE__ )
 
-    file_name = @created_at.strftime("#{self.class.name}_%y-%m-%d_%H-%M_%S.txt")
+    file_name = @text.strftime("#{self.class.name}_%y-%m-%d_%H-%M_%S.txt")
 
     current_path + "/" + file_name
   end
@@ -151,12 +151,12 @@ class Post
   def to_db_hash
     {
       'type' => self.class.name,
-      'created_at' => @created_at.to_s
+      'created_at' => @text.to_s
     }
   end
 
   # получает на вход хэш массив данных и должен заполнить свои поля
   def load_data(data_hash)
-    @created_at = Date.parse(data_hash['created_at'])
+    @text = Date.parse(data_hash['created_at'])
   end
 end

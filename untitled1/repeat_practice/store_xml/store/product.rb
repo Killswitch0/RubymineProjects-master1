@@ -5,21 +5,12 @@ class Product
 
   attr_accessor :price, :amount
 
-  def initialize(options = {})
-    @price = options[:amount]
-    @amount = options[:amount]
-  end
-
   def self.product_types
     [Film, Book]
   end
 
   def self.create(type_index)
     product_types[type_index].new
-  end
-
-  def to_strings
-    "Цена: #{@price}. Остаток: #{@amount}"
   end
 
   def self.showcase(product)
@@ -31,17 +22,6 @@ class Product
     end
 
     puts "'x' чтобы покинуть магазин"
-  end
-
-  def buy
-    if @amount > 0
-      puts 'Поздравляю! Вы купили товар!'
-      @amount -= 1
-      @price
-    else
-      puts 'Товар закончился!'
-      0
-    end
   end
 
   def self.read_from_xml(file_name)
@@ -62,12 +42,12 @@ class Product
 
       product_node.each_element('film') do |film_node|
         product = Film.new(
-          price: price,
-          amount: amount,
-          title: film_node.attributes['title'],
-          director: film_node.attributes['director'],
-          genre: film_node.attributes['genre'],
-          year: film_node.attributes['year']
+            price: price,
+            amount: amount,
+            title: film_node.attributes['title'],
+            director: film_node.attributes['director'],
+            genre: film_node.attributes['genre'],
+            year: film_node.attributes['year']
         )
       end
 
@@ -77,11 +57,31 @@ class Product
     result
   end
 
-  def read_from_console
+  def self.read_from_file(file_path)
     # to do
   end
 
-  def self.read_from_file(file_path)
+  def initialize(options = {})
+    @price = options[:amount]
+    @amount = options[:amount]
+  end
+
+  def to_strings
+    "Цена: #{@price}. Остаток: #{@amount}"
+  end
+
+  def buy
+    if @amount > 0
+      puts 'Поздравляю! Вы купили товар!'
+      @amount -= 1
+      @price
+    else
+      puts 'Товар закончился!'
+      0
+    end
+  end
+
+  def read_from_console
     # to do
   end
 
